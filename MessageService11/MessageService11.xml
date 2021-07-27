@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MessageService11</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPIApp.Controllers.MessageServiceController.Post">
+            <summary>
+            Creates random number of users.
+            </summary>
+            <returns>List of names of created users.</returns>
+        </member>
+        <member name="M:WebAPIApp.Controllers.MessageServiceController.GetAllUsers">
+            <summary>
+            Displays all users and information about them.
+            </summary>
+            <returns>All users information.</returns>
+        </member>
+        <member name="M:WebAPIApp.Controllers.MessageServiceController.GetUserInfo(System.String)">
+            <summary>
+            Shows all information about chosen user.
+            </summary>
+            <param name="email">User's email (name + @mail.ru).</param>
+            <returns>Chosen user information.</returns>
+            <response code="404">There is no such user.</response>
+        </member>
+        <member name="M:WebAPIApp.Controllers.MessageServiceController.GetSenderMessage(System.String)">
+            <summary>
+            Displays all messages with such sender email.
+            </summary>
+            <param name="sender_email">Sender email (name + @mail.ru).</param>
+            <returns>All messages with chosen sender.</returns>
+            <response code="404">There is no such user.</response>
+        </member>
+        <member name="M:WebAPIApp.Controllers.MessageServiceController.GetMessage(System.String,System.String)">
+            <summary>
+            Displays all the messages between to chosen people.
+            </summary>
+            <param name="sender_email">Sender email (name + @mail.ru).</param>
+            <param name="receiver_email">Receiver email (name + @mail.ru).</param>
+            <returns>All messages between to people.</returns>
+            <response code="404">There is no such users.</response>
+        </member>
+        <member name="M:WebAPIApp.Controllers.MessageServiceController.GetReceiverMessage(System.String)">
+            <summary>
+            Displays all the messages where receiver is entered user.
+            </summary>
+            <param name="receiver_email">Receiver email (name + @mail.ru).</param>
+            <returns>All messages with chosen receiver.</returns>
+            <response code="404">There is no such user.</response>
+        </member>
+        <member name="M:WebAPIApp.Controllers.MessageServiceController.MyHandlerPost(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creating a new message.
+            </summary>
+            <param name="topic">Message topic.</param>
+            <param name="message">Message text.</param>
+            <param name="sender_email">Sender email (name + @mail.ru).</param>
+            <param name="receiver_email">Receiver email (name + @mail.ru).</param>
+            <returns>Created message.</returns>
+            <response code="404">There is no such users.</response>
+        </member>
+        <member name="T:MessageService11.Models.Message">
+            <summary>
+            Message class.
+            </summary>
+        </member>
+        <member name="P:MessageService11.Models.Message.Topic">
+            <summary>
+            Message topic.
+            </summary>
+        </member>
+        <member name="P:MessageService11.Models.Message.Text">
+            <summary>
+            Message text.
+            </summary>
+        </member>
+        <member name="P:MessageService11.Models.Message.SenderID">
+            <summary>
+            Sender of the message.
+            </summary>
+        </member>
+        <member name="P:MessageService11.Models.Message.ReceiverID">
+            <summary>
+            Receiver of the message.
+            </summary>
+        </member>
+        <member name="M:MessageService11.Models.Message.#ctor">
+            <summary>
+            Empty constructor for the serialization.
+            </summary>
+        </member>
+        <member name="T:MessageService11.Models.Randomizer">
+            <summary>
+            Class for creating random users.
+            </summary>
+        </member>
+        <member name="M:MessageService11.Models.Randomizer.CreateRandomMessage(System.Collections.Generic.List{System.String},System.Collections.Generic.List{MessageService11.Models.Message}@,System.Collections.Generic.List{MessageService11.Models.User}@)">
+            <summary>
+            Method for creating random messages for the users.
+            </summary>
+            <param name="AllUsersNames">All user's names list.</param>
+            <param name="AllMessages">All messages list.</param>
+            <param name="AllUsers">All users list.</param>
+        </member>
+        <member name="M:MessageService11.Models.Randomizer.CreateRandomUser(System.Collections.Generic.List{System.String},System.Collections.Generic.List{MessageService11.Models.User}@)">
+            <summary>
+            Method for creating a new random user's.
+            </summary>
+            <param name="AllUsersNames">All user's names list.</param>
+            <param name="AllUsers">All users list.</param>
+        </member>
+        <member name="T:MessageService11.Models.Serializer">
+            <summary>
+            Class for serializing/deserializing.
+            </summary>
+        </member>
+        <member name="M:MessageService11.Models.Serializer.SerializeUsers(System.Collections.Generic.List{MessageService11.Models.User},System.Collections.Generic.List{System.String})">
+            <summary>
+            Serializing all users.
+            </summary>
+            <param name="AllUsers">All users list.</param>
+            <param name="AllUsersNames">All user's names list.</param>
+        </member>
+        <member name="M:MessageService11.Models.Serializer.SerializeMessages(System.Collections.Generic.List{MessageService11.Models.Message})">
+            <summary>
+            Serializing all the messages.
+            </summary>
+            <param name="AllMessages">All messages list.</param>
+        </member>
+        <member name="M:MessageService11.Models.Serializer.DeserializeUsers(System.Collections.Generic.List{MessageService11.Models.User}@)">
+            <summary>
+            Deserializing all users.
+            </summary>
+            <param name="AllUsers">All users names list.</param>
+        </member>
+        <member name="M:MessageService11.Models.Serializer.DeserializeMessages(System.Collections.Generic.List{MessageService11.Models.Message}@)">
+            <summary>
+            Deserializing all messages.
+            </summary>
+            <param name="AllMessages">All messages list.</param>
+        </member>
+        <member name="T:MessageService11.Models.User">
+            <summary>
+            User class.
+            </summary>
+        </member>
+        <member name="P:MessageService11.Models.User.Name">
+            <summary>
+            User's name.
+            </summary>
+        </member>
+        <member name="P:MessageService11.Models.User.Email">
+            <summary>
+            User's email address.
+            </summary>
+        </member>
+        <member name="P:MessageService11.Models.User.Messages">
+            <summary>
+            All user's messages.
+            </summary>
+        </member>
+        <member name="M:MessageService11.Models.User.#ctor">
+            <summary>
+            Empty constructor for the serialization.
+            </summary>
+        </member>
+    </members>
+</doc>
